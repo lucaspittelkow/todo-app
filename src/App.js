@@ -45,23 +45,25 @@ function App() {
 
   return (
     <div className="App">
-      <h1 className="title">To-do App</h1>
-      <form onSubmit={e => handleSubmit(e)}>
-        <div className="taskForm">
-          <input
-            className="taskInput"
-            type="text"
-            onChange={e => handleChange(e)}
-            value={newTask}
-            placeholder="Escreva uma nova tarefa"
+      <div className="App-header">
+        <h1 className="title">To-do App</h1>
+        <form onSubmit={e => handleSubmit(e)}>
+          <div className="taskForm">
+            <input
+              className="taskInput"
+              type="text"
+              onChange={e => handleChange(e)}
+              value={newTask}
+              placeholder="Escreva uma nova tarefa"
+              />
+            <input 
+              className="taskSubmit"
+              type="submit"
+              value="+"
             />
-          <input 
-            className="taskSubmit"
-            type="submit"
-            value="+"
-          />
-        </div>
-      </form>
+          </div>
+        </form>
+      </div>
       <div className="tasksComponent">
         <Tasks
           data={tasks}

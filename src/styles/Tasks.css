@@ -7,6 +7,11 @@ li{
     font-size: 1.5rem;
     padding: 1rem;
     border-bottom: 1px solid lightgray;
+    transition: background 0.5s;
+}
+
+li:hover{
+    background: var(--purple-95);
 }
 
 li:first-child{
@@ -25,4 +30,6 @@ input[type=checkbox]{
 li.done{
     text-decoration: line-through;
     color: gray;
+    background: var(--gray-95);
+    filter: grayscale(100%);
 }
