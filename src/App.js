@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import './styles/global.css';
 import './styles/App.css';
 import Tasks from './Tasks';
 
@@ -44,16 +45,15 @@ function App() {
 
   return (
     <div className="App">
-      <h1>To-do App</h1>
+      <h1 className="title">To-do App</h1>
       <form onSubmit={e => handleSubmit(e)}>
-        <label>Nova tarefa</label>
         <div className="taskForm">
           <input
             className="taskInput"
             type="text"
             onChange={e => handleChange(e)}
             value={newTask}
-            placeholder="Comprar couve no mercado"
+            placeholder="Escreva uma nova tarefa"
             />
           <input 
             className="taskSubmit"
@@ -62,12 +62,14 @@ function App() {
           />
         </div>
       </form>
-      <Tasks
-        data={tasks}
-        onCheckbox={(is_checked, item_key) => {
-          handleCheckbox(is_checked, item_key)
-        }}
-      />
+      <div className="tasksComponent">
+        <Tasks
+          data={tasks}
+          onCheckbox={(is_checked, item_key) => {
+            handleCheckbox(is_checked, item_key)
+          }}
+        />
+      </div>
     </div>
   );
 }

@@ -1,3 +1,5 @@
+
+
 .App {
   max-width: 900px;
   min-height: calc(100vh - 4rem);
@@ -7,9 +9,14 @@
   background: white;
 }
 
-label{
-  font-weight: 500;
-  color: #565656;
+h1.title{
+  font-size: 3rem;
+  width: fit-content;
+}
+
+h1.title:hover{
+  color: var(--purple-60);
+  cursor: default;
 }
 
 .taskForm{
@@ -24,23 +31,23 @@ label{
   padding: .6rem;
 
   border-radius: 6px;
-  border: 1px solid rgb(143, 143, 143);
+  border: 1px solid var(--gray-60);
 }
 
 .taskInput:focus{
   outline: 0;
-  box-shadow: 0 0 0 1px hsl(263, 66%, 61%);
+  box-shadow: 0 0 0 1px var(--purple-60);
 }
 
 .taskInput::placeholder{
-  color: rgb(185, 185, 185);
+  color: var(--gray-70);
 }
 
 .taskSubmit{
-  width: 3.3rem;
+  min-width: 3.3rem;
   padding: 0;
 
-  background-color: hsl(263, 66%, 61%);
+  background-color: var(--purple-60);
   color: white;
   
   border: none;
@@ -52,5 +59,9 @@ label{
 }
 
 .taskSubmit:hover{
-  background-color: hsl(263, 66%, 55%);
+  background-color: var(--purple-55);
+}
+
+.tasksComponent{
+  margin-top: 4rem;
 }
