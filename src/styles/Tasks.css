@@ -1,0 +1,24 @@
+ul{
+    list-style-type: none;
+    padding:0;
+}
+
+li{
+    font-size: 1.5rem;
+    padding: .6rem;
+    border-bottom: 1px solid lightgray;
+}
+
+li span{
+    margin-left: 1rem;
+}
+
+input[type=checkbox]{
+    transform: scale(2);
+    margin: 0 0;
+}
+
+li.done{
+    text-decoration: line-through;
+    color: gray;
+}

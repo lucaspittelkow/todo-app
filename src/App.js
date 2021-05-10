@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import './styles/App.css';
-import Task from './Task';
+import Tasks from './Tasks';
 
 function App() {
 
@@ -14,10 +14,33 @@ function App() {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    tasks.push(<Task>{newTask}</Task>)
+    if(newTask.trim()){
+      setTasks(tasks => [...tasks, {
+          title: newTask,
+          key: Date.now(),
+          done: false,
+        }]);
+    }
 
     setNewTask("");
   };
+
+  const handleCheckbox = (is_checked, item_key) => {
+  
+    const newList = tasks.map((item) => {
+      if(item.key === item_key){
+        const updatedTask = {
+          ...item,
+          done: is_checked,
+        };
+
+        return updatedTask;
+      }
+      return item;
+    });
+
+    setTasks(newList);
+  }
 
   return (
     <div className="App">
@@ -39,9 +62,12 @@ function App() {
           />
         </div>
       </form>
-      <ul>
-        {tasks}
-      </ul>
+      <Tasks
+        data={tasks}
+        onCheckbox={(is_checked, item_key) => {
+          handleCheckbox(is_checked, item_key)
+        }}
+      />
     </div>
   );
 }
