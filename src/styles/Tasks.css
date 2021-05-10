@@ -8,28 +8,71 @@ li{
     padding: 1rem;
     border-bottom: 1px solid lightgray;
     transition: background 0.5s;
+
+    display: flex;
+}
+
+li button{
+    justify-self: flex-end;
 }
 
 li:hover{
     background: var(--purple-95);
+}
+li:hover .deleteButton{
+    opacity: 1;
 }
 
 li:first-child{
     border-top: 1px solid lightgray;
 }
 
-li span{
-    margin-left: 1rem;
-}
-
 input[type=checkbox]{
-    transform: scale(2);
-    margin: 0 0;
+    transform: scale(2) translate(3px, 5px);
+    margin: 0;
 }
 
 li.done{
+    background: var(--gray-95);
+}
+
+li.done input[type=text]{
     text-decoration: line-through;
     color: gray;
-    background: var(--gray-95);
     filter: grayscale(100%);
+}
+li.done input[type=checkbox]{
+    filter: grayscale(100%);
+}
+
+.deleteButton{
+    width: 2rem;
+    background: none;
+    color: var(--red-60);
+    border: none;
+    border-radius: 4px;
+    font-size: 1.4rem;
+    text-transform: uppercase;
+    cursor:pointer;
+
+    transition: opacity 0.2s;
+    opacity: 0;
+}
+
+li form{
+    margin-left: 2rem;
+    width: 100%;
+}
+
+li form input[type=text]{
+    background: none;
+    width: 100%;
+    font-size: inherit;
+    font-family: inherit;
+    padding: 0;
+    border: 0;
+}
+
+li form input[type=text]:focus{
+    outline: none;
 }

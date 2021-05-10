@@ -5,6 +5,7 @@
     --purple-95: hsl(263, 66%, 95%);
     --purple-60: hsl(263, 66%, 60%);
     --purple-55: hsl(263, 66%, 55%);
+    --red-60: hsl(0, 82%, 65%);
 }
 
 @media (max-width: 425px){

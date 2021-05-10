@@ -10,7 +10,7 @@ function App() {
 
   const handleChange = (e) => {
     setNewTask(e.target.value);
-  }
+  };
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -27,7 +27,6 @@ function App() {
   };
 
   const handleCheckbox = (is_checked, item_key) => {
-  
     const newList = tasks.map((item) => {
       if(item.key === item_key){
         const updatedTask = {
@@ -41,13 +40,39 @@ function App() {
     });
 
     setTasks(newList);
-  }
+  };
+
+  const handleDelete = (item_key) => {
+    const newList = tasks.slice().filter((item) => {
+      return item.key != item_key
+    });
+
+    setTasks(newList);
+  };
+
+  const handleRename = (item_key, new_title) => {
+    const newList = tasks.map((item) => {
+      if(item.key === item_key){
+        const updatedTask = {
+          ...item,
+          title: new_title,
+        };
+        return updatedTask;
+      }
+      return item;
+    });
+
+    setTasks(newList);
+  };
 
   return (
     <div className="App">
+
       <div className="App-header">
         <h1 className="title">To-do App</h1>
+
         <form onSubmit={e => handleSubmit(e)}>
+
           <div className="taskForm">
             <input
               className="taskInput"
@@ -56,22 +81,33 @@ function App() {
               value={newTask}
               placeholder="Escreva uma nova tarefa"
               />
+
             <input 
               className="taskSubmit"
               type="submit"
               value="+"
             />
           </div>
+
         </form>
+
       </div>
+
       <div className="tasksComponent">
         <Tasks
           data={tasks}
           onCheckbox={(is_checked, item_key) => {
             handleCheckbox(is_checked, item_key)
           }}
+          onDelete={(item_key) => {
+            handleDelete(item_key)
+          }}
+          onRename={(item_key, new_title) => {
+            handleRename(item_key, new_title)
+          }}
         />
       </div>
+
     </div>
   );
 }

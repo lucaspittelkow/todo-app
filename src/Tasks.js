@@ -8,12 +8,25 @@ export default function Tasks(props){
                 return (x.done === y.done)? 0 : x.done ? 1 : -1;
             }).map(item => {
                 return(
-                    <li key={item.key} className={item.done && "done"}>
+                    <li key={item.key} className={item.done ? "done" : undefined}>
                         <input 
                             type="checkbox"
                             onChange={(e) => {props.onCheckbox(e.target.checked, item.key)}}
                         />
-                        <span>{item.title}</span>
+                        <form 
+                            onChange={(e) => props.onRename(item.key, e.target.value)}
+                            onSubmit={(e) => e.preventDefault()}
+                        >
+                            <input 
+                                type="text"
+                                value={item.title}
+                            />
+                        </form>
+                        <button 
+                            className="deleteButton"
+                            onClick={() => {props.onDelete(item.key)}}>
+                            x
+                        </button>
                     </li>
                 )
             })}
