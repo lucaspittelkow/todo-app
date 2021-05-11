@@ -20,6 +20,7 @@ function App() {
           title: newTask,
           key: Date.now(),
           done: false,
+          done_at: null,
         }]);
     }
 
@@ -32,6 +33,7 @@ function App() {
         const updatedTask = {
           ...item,
           done: is_checked,
+          done_at: (is_checked ? Date.now() : null)
         };
 
         return updatedTask;

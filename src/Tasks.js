@@ -5,7 +5,8 @@ export default function Tasks(props){
     return (
         <ul>
             {props.data.slice().sort((x, y) => {
-                return (x.done === y.done)? 0 : x.done ? 1 : -1;
+                console.log(x.done-y.done);
+                return (x.done && y.done ? y.done_at - x.done_at : x.done - y.done);
             }).map(item => {
                 return(
                     <li key={item.key} className={item.done ? "done" : undefined}>
