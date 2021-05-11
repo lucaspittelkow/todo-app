@@ -12,6 +12,7 @@ export default function Tasks(props){
                     <li key={item.key} className={item.done ? "done" : undefined}>
                         <input 
                             type="checkbox"
+                            checked={item.done}
                             onChange={(e) => {props.onCheckbox(e.target.checked, item.key)}}
                         />
                         <form 
