@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import './styles/global.css';
 import './styles/App.css';
 import Tasks from './Tasks';
@@ -7,6 +7,17 @@ function App() {
 
   const [newTask, setNewTask] = useState("");
   const [tasks, setTasks] = useState([]);
+  const ls_tasks = localStorage.getItem("@todo-app/tasks");
+
+  useEffect(() => {
+    if(ls_tasks !== null){
+      setTasks(JSON.parse(localStorage.getItem("@todo-app/tasks")));
+    }
+  }, []);
+
+  useEffect(() => {
+    localStorage.setItem("@todo-app/tasks", JSON.stringify(tasks));
+  }, [tasks]);
 
   const handleChange = (e) => {
     setNewTask(e.target.value);
