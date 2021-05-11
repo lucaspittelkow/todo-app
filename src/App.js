@@ -7,12 +7,9 @@ function App() {
 
   const [newTask, setNewTask] = useState("");
   const [tasks, setTasks] = useState([]);
-  const ls_tasks = localStorage.getItem("@todo-app/tasks");
 
   useEffect(() => {
-    if(ls_tasks !== null){
-      setTasks(JSON.parse(localStorage.getItem("@todo-app/tasks")));
-    }
+    setTasks(JSON.parse(localStorage.getItem("@todo-app/tasks")));
   }, []);
 
   useEffect(() => {
@@ -57,7 +54,7 @@ function App() {
 
   const handleDelete = (item_key) => {
     const newList = tasks.slice().filter((item) => {
-      return item.key != item_key
+      return item.key !== item_key
     });
 
     setTasks(newList);
