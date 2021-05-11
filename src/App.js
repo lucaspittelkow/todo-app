@@ -9,7 +9,9 @@ function App() {
   const [tasks, setTasks] = useState([]);
 
   useEffect(() => {
-    setTasks(JSON.parse(localStorage.getItem("@todo-app/tasks")));
+    if(localStorage.getItem("@todo-app/tasks") !== null){
+      setTasks(JSON.parse(localStorage.getItem("@todo-app/tasks")));
+    }
   }, []);
 
   useEffect(() => {
