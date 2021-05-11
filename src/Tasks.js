@@ -4,7 +4,7 @@ export default function Tasks(props){
 
     return (
         <ul>
-            {props.data.sort((x, y) => {
+            {props.data.slice().sort((x, y) => {
                 return (x.done === y.done)? 0 : x.done ? 1 : -1;
             }).map(item => {
                 return(
