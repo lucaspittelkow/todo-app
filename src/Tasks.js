@@ -27,7 +27,7 @@ export default function Tasks(props){
                         <button 
                             className="deleteButton"
                             onClick={() => {props.onDelete(item.key)}}>
-                            x
+                            <span  role="img" aria-label="cross mark">❌</span>
                         </button>
                     </li>
                 )
