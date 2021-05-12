@@ -10,6 +10,8 @@ li{
     transition: background 0.5s;
 
     display: flex;
+    flex-direction: row;
+    align-items: center;
 }
 
 li button{
@@ -28,8 +30,9 @@ li:first-child{
 }
 
 input[type=checkbox]{
-    transform: scale(1.8) translate(3px, 5px);
+    transform: scale(1.8);
     margin: 0;
+    margin-left: .5rem;
     cursor: pointer;
 }
 
@@ -61,13 +64,13 @@ li.done input[type=checkbox]{
 }
 
 li form{
-    margin-left: 2rem;
     width: 100%;
 }
 
 li form input[type=text]{
     background: none;
     width: 100%;
+    margin-left: 1.5rem;
     font-size: inherit;
     font-family: inherit;
     padding: 0;
