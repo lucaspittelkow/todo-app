@@ -65,12 +65,12 @@ li.done input[type=checkbox]{
 
 li form{
     width: 100%;
+    margin-left: 1.5rem;
 }
 
 li form input[type=text]{
     background: none;
     width: 100%;
-    margin-left: 1.5rem;
     font-size: inherit;
     font-family: inherit;
     padding: 0;
